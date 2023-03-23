@@ -76,7 +76,6 @@ conda activate speechwidgets-dev
 Install the python dependencies. This will also build the TS package.
 ```bash
 pip install -e ".[test, examples]"
-pip install jupyter_packaging traittypes numpy scipy
 ```
 
 When developing your extensions, you need to manually enable your extensions with the
