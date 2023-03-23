@@ -93,6 +93,16 @@ setup_args = dict(
     python_requires=">=3.6",
     install_requires = [
         'ipywidgets>=7.0.0',
+        'ipykernel>=6.22.0',
+        'jupyter_packaging>=0.12.3',
+        'numpy>=1.24.2',
+        'pytest>=7.2.2',
+        'setuptools>=67.6.0',
+        'Sphinx>=6.1.3',
+        'sphinx_rtd_theme>=1.2.0',
+        'torchaudio>=2.0.1',
+        'traitlets>=5.9.0',
+        'traittypes>=0.2.1'
     ],
     extras_require = {
         'test': [
