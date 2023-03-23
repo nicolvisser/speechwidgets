@@ -1,11 +1,13 @@
 
 # speechwidgets
 
-[![Build Status](https://travis-ci.org//speechwidgets.svg?branch=master)](https://travis-ci.org//speechwidgets)
-[![codecov](https://codecov.io/gh//speechwidgets/branch/master/graph/badge.svg)](https://codecov.io/gh//speechwidgets)
-
-
 A library with Jupyter widgets for speech processing
+
+Widgets in this library:
+
+- **SpectrogramPlayer**
+  - Based on the React component, [react-audio-spectrogram-player](https://github.com/nicolvisser/react-audio-spectrogram-player)
+  - See the [demo](https://react-audio-spectrogram-player.netlify.app).
 
 ## Installation
 
@@ -19,6 +21,48 @@ If you are using Jupyter Notebook 5.2 or earlier, you may also need to enable
 the nbextension:
 ```bash
 jupyter nbextension enable --py [--sys-prefix|--user|--system] speechwidgets
+```
+
+## Usage
+
+```py
+from speechwidgets import SpectrogramPlayer
+```
+Basic usage:
+```py
+SpectrogramPlayer(
+    wav_file_path='./19-198-0001.wav',
+    width=800,
+    spec_height=200,
+    navigator=True,
+    nav_height=60,
+)
+```
+Advanced usage:
+```py
+SpectrogramPlayer(
+    wav_file_path='./19-198-0001.wav',
+    width=800,
+    spec_height=200,
+    navigator=False,
+    settings=False,
+    colormap="greys",
+
+    # for dark mode notebooks:
+    dark=False, # set to True
+    transparent=False, # optionally set to True
+    
+    # mel spec parameters:
+    n_fft=2048,
+    win_length=400,
+    hop_length=160,
+    f_min=50, 
+    n_mels=80,
+    power=1.0,
+    
+    # amplitude to db parameter:
+    top_db=80 
+)
 ```
 
 ## Development Installation
