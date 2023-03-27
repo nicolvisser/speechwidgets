@@ -69,7 +69,7 @@ SpectrogramPlayer(
 
 Create a dev environment:
 ```bash
-conda create -n speechwidgets-dev -c conda-forge nodejs python jupyterlab
+conda create -n speechwidgets-dev -c conda-forge nodejs python=3.10 jupyterlab
 conda activate speechwidgets-dev
 ```
 
