@@ -18,6 +18,8 @@ function ReactWidget(props: WidgetProps) {
   const [colormap] = useModelState('colormap');
   const [transparent] = useModelState('transparent');
   const [dark] = useModelState('dark');
+  const [annotations] = useModelState('annotations');
+  const [annotations2] = useModelState('annotations2');
 
   return (
     <div className="Widget" style={{ width: width }}>
@@ -31,6 +33,8 @@ function ReactWidget(props: WidgetProps) {
         colormap={colormap}
         transparent={transparent}
         dark={dark}
+        annotations={annotations[0].length ==0 ? undefined : annotations}
+        annotations2={annotations2[0].length ==0 ? undefined : annotations2}
       />
     </div>
   );

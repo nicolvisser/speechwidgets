@@ -45,6 +45,8 @@ class SpectrogramPlayer(DOMWidget):
     n_mels=Int(80).tag(sync=True)
     power=Float(1.0).tag(sync=True)
     top_db=Int(80).tag(sync=True)
+    annotations=Array([[]]).tag(sync=True)
+    annotations2=Array([[]]).tag(sync=True)
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)

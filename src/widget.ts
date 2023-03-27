@@ -27,7 +27,9 @@ const defaultModelProperties = {
   settings: false,
   colormap: 'viridis',
   transparent: false,
-  dark: false
+  dark: false,
+  annotations: [[]],
+  annotations2: [[]],
 }
 
 export type WidgetModelState = typeof defaultModelProperties
