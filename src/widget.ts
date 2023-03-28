@@ -30,6 +30,8 @@ const defaultModelProperties = {
   dark: false,
   annotations: [[]],
   annotations2: [[]],
+  annotation_aspect_ratio: 0.03,
+  annotation_stroke_width: 1.0
 }
 
 export type WidgetModelState = typeof defaultModelProperties

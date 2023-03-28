@@ -49,6 +49,8 @@ class SpectrogramPlayer(DOMWidget):
     top_db = Int(80).tag(sync=True)
     annotations = Array([[]]).tag(sync=True)
     annotations2 = Array([[]]).tag(sync=True)
+    annotation_aspect_ratio = Float(0.03).tag(sync=True)
+    annotation_stroke_width = Float(1.0).tag(sync=True)
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -75,7 +77,7 @@ class SpectrogramPlayer(DOMWidget):
                                   fmin=self.f_min,
                                   power=self.power)
 
-        mel_spec = amplitude_to_db(mel_spec,            top_db=self.top_db)
+        mel_spec = amplitude_to_db(mel_spec, top_db=self.top_db)
 
         mel_spec = ((mel_spec-mel_spec.min()) /
                     (mel_spec.max() - mel_spec.min())*255).astype(np.uint8)

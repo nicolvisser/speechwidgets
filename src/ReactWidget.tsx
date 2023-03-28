@@ -20,6 +20,8 @@ function ReactWidget(props: WidgetProps) {
   const [dark] = useModelState('dark');
   const [annotations] = useModelState('annotations');
   const [annotations2] = useModelState('annotations2');
+  const [annotationAspectRatio] = useModelState('annotation_aspect_ratio');
+  const [annotationStrokeWidth] = useModelState('annotation_stroke_width');
 
   return (
     <div className="Widget" style={{ width: width }}>
@@ -35,6 +37,8 @@ function ReactWidget(props: WidgetProps) {
         dark={dark}
         annotations={annotations[0].length ==0 ? undefined : annotations}
         annotations2={annotations2[0].length ==0 ? undefined : annotations2}
+        annotationAspectRatio={annotationAspectRatio}
+        annotationStrokeWidth={annotationStrokeWidth}
       />
     </div>
   );
