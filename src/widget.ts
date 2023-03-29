@@ -28,10 +28,7 @@ const defaultModelProperties = {
   colormap: 'viridis',
   transparent: false,
   dark: false,
-  annotations: [[]],
-  annotations2: [[]],
-  annotation_aspect_ratio: 0.03,
-  annotation_stroke_width: 1.0
+  annotations: [],
 }
 
 export type WidgetModelState = typeof defaultModelProperties

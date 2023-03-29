@@ -9,7 +9,7 @@ TODO: Add module docstring
 """
 
 from ipywidgets import DOMWidget
-from traitlets import Unicode, Int, Bool, Float
+from traitlets import Unicode, Int, Bool, Float, List, Dict
 from ._frontend import module_name, module_version
 from traittypes import Array
 from librosa import load, amplitude_to_db
@@ -17,7 +17,6 @@ from librosa.feature import melspectrogram
 import numpy as np
 
 # TODO: Perform mel spectrogram calculation here and make sxx optional
-
 
 class SpectrogramPlayer(DOMWidget):
     """TODO: Add docstring here
@@ -47,15 +46,15 @@ class SpectrogramPlayer(DOMWidget):
     n_mels = Int(80).tag(sync=True)
     power = Float(1.0).tag(sync=True)
     top_db = Int(80).tag(sync=True)
-    annotations = Array([[]]).tag(sync=True)
-    annotations2 = Array([[]]).tag(sync=True)
-    annotation_aspect_ratio = Float(0.03).tag(sync=True)
-    annotation_stroke_width = Float(1.0).tag(sync=True)
+    annotations = List(trait=Dict(per_key_traits={"data": List(), "title": Unicode(''), "height": Int(40), "strokeWidth": Float(1.0)}), default_value=[]).tag(sync=True)
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.calc_src()
         self.calc_sxx()
+
+    def annotate(self, data, title=None, height=30, stroke_width=1):
+        self.annotations = self.annotations + [{"data": data,"title": title,"height": height,"strokeWidth": stroke_width}]
 
     def calc_src(self):
         import base64
