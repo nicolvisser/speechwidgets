@@ -1,13 +1,12 @@
 
 # speechwidgets
 
-A library with Jupyter widgets for speech processing
+Jupyter widgets for speech processing
 
-Widgets in this library:
-
-- **SpectrogramPlayer**
-  - Based on the React component, [react-audio-spectrogram-player](https://github.com/nicolvisser/react-audio-spectrogram-player)
-  - See the [demo](https://react-audio-spectrogram-player.netlify.app).
+- **`SpectrogramPlayer`**
+  - Based on the React component, [react-audio-spectrogram-player](https://github.com/nicolvisser/react-audio-spectrogram-player). See the [demo](https://react-audio-spectrogram-player.netlify.app).
+  
+![preview](./preview.png)
 
 ## Installation
 
@@ -28,7 +27,7 @@ jupyter nbextension enable --py [--sys-prefix|--user|--system] speechwidgets
 ```py
 from speechwidgets import SpectrogramPlayer
 ```
-Basic usage:
+### Basic usage:
 ```py
 SpectrogramPlayer(
     wav_file_path='./19-198-0001.wav',
@@ -38,7 +37,7 @@ SpectrogramPlayer(
     nav_height=60,
 )
 ```
-Advanced usage:
+### Advanced usage:
 ```py
 SpectrogramPlayer(
     wav_file_path='./19-198-0001.wav',
@@ -64,6 +63,25 @@ SpectrogramPlayer(
     top_db=80 
 )
 ```
+### Annotations:
+```py
+word_intervals = [['0.54', '0.84', 'this'],
+        ['0.84', '1.1', 'little'],
+        ['1.1', '1.4', 'work']]
+```
+```py
+s = SpectrogramPlayer(
+    wav_file_path='./19-198-0001.wav',
+    width=800,
+    spec_height=200
+)
+```
+```py
+s.annotate(data=word_intervals, title="Word Intervals", height=20, stroke_width=0.5)
+```
+You can call the `annotate` method  multiple times with different data. `title`, `height` and `stroke_width` are optional arguments.
+
+See `examples/` folder on github for full code examples.
 
 ## Development Installation
 
